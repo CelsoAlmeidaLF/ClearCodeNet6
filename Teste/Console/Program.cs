@@ -1,21 +1,33 @@
 ﻿
-using Systekna.Application.Business;
+using Systekna.Application;
 using Systekna.Application.Interface;
 using Systekna.Core.Entity;
-using Systekna.Core.Valid;
-using System.Data;
+using System.Diagnostics;
 
-EntityBusiness entity = new EntityBusiness();
-DataTable data = new DataTable();
-IBusiness<EntityBusiness> business = new Business();
+Entity entity = new Entity();
+IBusiness<Entity> business = new Business();
 
-try
+Console.WriteLine("Name: " + entity.GetType().Name);
+Console.WriteLine("Assembly: " + entity.GetType().Assembly);
+Console.WriteLine("Name: " + business.GetType().Name);
+Console.WriteLine("Assembly: " + business.GetType().Assembly);
+
+Business.IsValidCadastro = business.Cadastrar(entity);
+if (Business.IsValidCadastro.ValidValue)
 {
-    EntityBusiness.IsValid(entity);
-    data = IsValid.Value.Equals(true) ? business.GetDataTable(entity) : throw new Exception("Parametro não encontrado!");
-    bool? complet = business.IsComplet();
+    Debug.WriteLine($"Cadastrado com sucesso!");
 }
-catch (Exception ex)
+
+Business.IsValidAlteração = business.Alterar(entity);
+if (Business.IsValidAlteração.ValidValue)
 {
-    Console.Error.WriteLine(ex.Message);
+    Debug.WriteLine($"Alterado com sucesso!");
 }
+
+Business.IsValidExclusão = business.Excluir(entity);
+if (Business.IsValidExclusão.ValidValue)
+{
+    Debug.WriteLine($"Exclusão com sucesso!");
+}
+
+Console.Read();

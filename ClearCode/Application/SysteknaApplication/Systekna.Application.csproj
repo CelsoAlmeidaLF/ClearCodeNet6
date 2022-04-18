@@ -9,9 +9,4 @@
     <ProjectReference Include="..\..\Infrastructure\SysteknaInfrastructure\Systekna.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="Interface\" />
-  </ItemGroup>
-
 </Project>

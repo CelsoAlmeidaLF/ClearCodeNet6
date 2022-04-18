@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Systekna.Core.ValidObject
+namespace Systekna.Core.Valid
 {
-    public class ValidObject
+    public class Valid : EntityUser
     {
-        public bool? IsValid { get; set; } = false;
+        public bool ValidValue { get; set; } = false;
     }
 }

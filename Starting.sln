@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUT_Application", "Teste\NU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUT_Infrasctruture", "Teste\NUT_Infrasctruture\NUT_Infrasctruture.csproj", "{E494BB98-E58E-4FBA-B007-FA1F12DE1DA4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Teste\Console\Console.csproj", "{26CB3ED0-587E-4BC2-9182-0680A4B74586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{E494BB98-E58E-4FBA-B007-FA1F12DE1DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E494BB98-E58E-4FBA-B007-FA1F12DE1DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E494BB98-E58E-4FBA-B007-FA1F12DE1DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CB3ED0-587E-4BC2-9182-0680A4B74586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CB3ED0-587E-4BC2-9182-0680A4B74586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CB3ED0-587E-4BC2-9182-0680A4B74586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CB3ED0-587E-4BC2-9182-0680A4B74586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
