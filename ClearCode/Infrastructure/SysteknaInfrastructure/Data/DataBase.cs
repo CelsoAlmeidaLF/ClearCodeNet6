@@ -97,14 +97,11 @@ namespace Systekna.Data
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="cmmd"></param>
-        /// <param name="parameters"></param>
-        /// <param name="commandType"></param>
+        /// <param name="data"></param>
+        /// <param name="tableName"></param>
         /// <returns></returns>
-        public SqlBulkCopy ExecSqlBulkCopy(string cmmd, SqlParameter[] parameters = null, 
-            CommandType commandType = CommandType.Text)
+        public SqlBulkCopy ExecSqlBulkCopy(DataTable data, string tableName)
         {
-            _cmmd = new SqlCommand(cmmd, Open());
             return null;
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using Systekna.Core.Valid;
 
 namespace Systekna.Core.Entity
 {
@@ -11,17 +10,5 @@ namespace Systekna.Core.Entity
         public DateTime? DataAlteração { get; set; } = null;
         public bool Exclusão { get; set; } = false;
         public DateTime? DataExclusão { get; set; } = null;
-
-        #region method
-        /// <summary>
-        /// Valida Regsitro
-        /// </summary>
-        /// <param name="obj">Objeto é valido?</param>
-        public static void IsValid(object obj)
-        {
-            Valid.IsValid.Value = obj != null ? true : false;
-        }
-
-        #endregion
     }
 }

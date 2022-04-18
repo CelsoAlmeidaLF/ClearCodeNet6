@@ -1,10 +1,13 @@
-﻿using Systekna.Core.Entity;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Systekna.Core.Valid
+namespace Systekna.Core.ValidObject
 {
-    public abstract class IsValid
+    public class ValidObject
     {
-        public static bool? Value { get; set; } = false;
+        public bool? IsValid { get; set; } = false;
     }
 }

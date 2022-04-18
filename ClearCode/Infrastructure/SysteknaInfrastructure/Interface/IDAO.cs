@@ -10,8 +10,7 @@ namespace Systekna.Infrastructure.Interface
         DataTable ExecDataTable(string cmd, SqlParameter[] parameters = null, 
             CommandType commandType = CommandType.Text);
 
-        SqlBulkCopy ExecSqlBulkCopy(string cmd, SqlParameter[] parameters = null, 
-            CommandType commandType = CommandType.Text);
+        SqlBulkCopy ExecSqlBulkCopy(DataTable data, string tableName);
  
         SqlDataReader ExecDataReader(string cmd, SqlParameter[] parameters = null,
             CommandType commandType = CommandType.Text);
