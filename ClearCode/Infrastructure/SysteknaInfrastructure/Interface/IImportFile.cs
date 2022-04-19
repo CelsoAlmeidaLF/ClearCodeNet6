@@ -4,6 +4,6 @@ namespace Systekna.Infrastructure
 {
     public interface IImportFile
     {
-        DataTable Import(string path);
+        DataTable ImportDataFile(string path);
     }
 }

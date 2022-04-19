@@ -1,6 +1,6 @@
 ﻿namespace Systekna.Application
 {
-    public interface IBusiness<T> : IUpInsBusiness<T>, IGetBusiness<T>, IImportBusiness
+    public interface IBusiness<T> : IUpInsBusiness<T>, IGetBusiness<T>, IImportDataFile
     {
     }
 }

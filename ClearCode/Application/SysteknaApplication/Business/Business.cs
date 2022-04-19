@@ -10,11 +10,11 @@ using System.Data;
 
 namespace Systekna.Application
 {
-    public partial class BusinessProperties : IBusiness<Entity>
+    public partial class Business : IBusiness<Entity>
     {
         public IExcel excel;
 
-        public Valid Alterar(Entity entity)
+        public Valid UpdateRepository(Entity entity)
         {
             entity.DataAlteração = DateTime.Now;
             entity.ID = 100;
@@ -25,7 +25,7 @@ namespace Systekna.Application
                 StringMethod = System.Reflection.MethodBase.GetCurrentMethod().Name
             };
         }
-        public Valid Cadastrar(Entity entity)
+        public Valid InsertRepository(Entity entity)
         {
             entity.DataCriação = DateTime.Now;
             entity.ID = 404;
@@ -35,7 +35,7 @@ namespace Systekna.Application
                 StringMethod = System.Reflection.MethodBase.GetCurrentMethod().Name
             };
         }
-        public Valid Excluir(Entity entity)
+        public Valid DeleteRepository(Entity entity)
         {
             entity.DataExclusão = DateTime.Now;
             entity.Exclusão = true;
@@ -59,10 +59,10 @@ namespace Systekna.Application
         {
             return new Repository(Framework.StringConection).Consultar(entity);
         }
-        public DataTable ImportDataTable(string path)
+        public DataTable ImportDataFile(string path)
         {
             excel = new Excel();
-            return excel.Import(path);
+            return excel.ImportDataFile(path);
         }
     }
 }

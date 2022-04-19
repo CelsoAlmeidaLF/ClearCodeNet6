@@ -4,8 +4,8 @@ namespace Systekna.Application
 {
     public interface IUpInsBusiness<T>
     {
-        Valid Cadastrar(T entity);
-        Valid Alterar(T entity);
-        Valid Excluir(T entity);
+        Valid InsertRepository(T entity);
+        Valid UpdateRepository(T entity);
+        Valid DeleteRepository(T entity);
     }
 }

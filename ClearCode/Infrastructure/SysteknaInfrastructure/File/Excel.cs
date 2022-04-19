@@ -10,7 +10,7 @@ namespace Systekna.Infrastructure.File
             return true;
         }
 
-        public DataTable Import(string path)
+        public DataTable ImportDataFile(string path)
         {
             return new DataTable("empty table import");
         }
