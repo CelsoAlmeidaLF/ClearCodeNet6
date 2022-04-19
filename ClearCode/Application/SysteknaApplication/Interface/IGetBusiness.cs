@@ -1,9 +1,9 @@
 ﻿using Systekna.Core.Valid;
 using System.Data;
 
-namespace Systekna.Application.Interface
+namespace Systekna.Application
 {
-    public interface IBusinessConsulta<T>
+    public interface IGetBusiness<T>
     {
         DataTable ReturnDataTable(T entity);
         Valid ExportDataTable(DataTable data, string path);

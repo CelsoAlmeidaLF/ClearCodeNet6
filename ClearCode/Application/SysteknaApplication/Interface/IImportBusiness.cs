@@ -2,7 +2,7 @@
 
 namespace Systekna.Application
 {
-    public interface IBusinessImport
+    public interface IImportBusiness
     {
         DataTable ImportDataTable(string path);
     }

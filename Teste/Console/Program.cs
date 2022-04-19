@@ -1,58 +1,53 @@
-﻿
-using Systekna.Application;
-using Systekna.Application.Interface;
+﻿using Systekna.Application;
 using Systekna.Core.Entity;
 using System.Data;
-
 Console.Title = "Console Test CRUD";
 
 // Entidades do negócio.
 Entity entity = new Entity();
 
 // Chama regra de negócio.
-IBusiness<Entity> _bCadastraAtualizaRepository = new Business();
+IBusiness<Entity> _business = new BusinessProperties();
 ISendEmail _send = new BusinessEmail();
-IBusinessConsulta<Entity> _bConsultaRepository = new Business();
-IBusinessImport _bImportDataTable = new Business();
 
 #region "Methods"
 
 // Cadastra um item no Repository.
-Business.IsValidCadastro = _bCadastraAtualizaRepository.Cadastrar(entity);
-if (Business.IsValidCadastro.ValidValue)
+BusinessProperties.IsValidCadastro = _business.Cadastrar(entity);
+if (BusinessProperties.IsValidCadastro.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "cadastro com sucesso", "...", false);
     //Debug.WriteLine($"Cadastrado com sucesso!");
 }
 
 // Altera um item no Repository.
-Business.IsValidAlteração = _bCadastraAtualizaRepository.Alterar(entity);
-if (Business.IsValidAlteração.ValidValue)
+BusinessProperties.IsValidAlteração = _business.Alterar(entity);
+if (BusinessProperties.IsValidAlteração.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "alteração com sucesso", "...", false);
     //Debug.WriteLine($"Alterado com sucesso!");
 }
 
 // Exclui um item no Repository.
-Business.IsValidExclusão = _bCadastraAtualizaRepository.Excluir(entity);
-if (Business.IsValidExclusão.ValidValue)
+BusinessProperties.IsValidExclusão = _business.Excluir(entity);
+if (BusinessProperties.IsValidExclusão.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "exclusão com sucesso", "...", false);
     //Debug.WriteLine($"Exclusão com sucesso!");
 }
 
 // Retorna DataTable e exporta tabela.
-DataTable dtIn = _bConsultaRepository.ReturnDataTable(new Entity());
+DataTable dtIn = _business.ReturnDataTable(new Entity());
 
 // Exporta Table para um novo arquivo.
-Business.IsValidExport = _bConsultaRepository.ExportDataTable(dtIn, Directory.GetCurrentDirectory());
-if (Business.IsValidExclusão.ValidValue)
+BusinessProperties.IsValidExport = _business.ExportDataTable(dtIn, Directory.GetCurrentDirectory());
+if (BusinessProperties.IsValidExclusão.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "exportado com sucesso", "...", false);
     //Debug.WriteLine($"Exclusão com sucesso!");
 }
 
-DataTable dtOut = _bImportDataTable.ImportDataTable(Directory.GetCurrentDirectory());
+DataTable dtOut = _business.ImportDataTable(Directory.GetCurrentDirectory());
 
 #endregion
 

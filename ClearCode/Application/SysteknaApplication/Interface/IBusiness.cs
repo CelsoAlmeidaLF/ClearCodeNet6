@@ -1,11 +1,6 @@
-﻿using Systekna.Core.Valid;
-
-namespace Systekna.Application.Interface
+﻿namespace Systekna.Application
 {
-    public interface IBusiness<T>
+    public interface IBusiness<T> : IUpInsBusiness<T>, IGetBusiness<T>, IImportBusiness
     {
-        Valid Cadastrar(T entity);
-        Valid Alterar(T entity);
-        Valid Excluir(T entity);
     }
 }

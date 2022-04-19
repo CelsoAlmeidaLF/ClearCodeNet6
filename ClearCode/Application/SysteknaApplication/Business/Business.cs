@@ -1,23 +1,18 @@
 ﻿
-using Systekna.Application.Interface;
 using Systekna.Core.Entity;
 using Systekna.Core.Valid;
 using Systekna.Infrastructure;
 using Systekna.Infrastructure.File;
-using Systekna.Infrastructure.Interface;
+using Systekna.Infrastructure.Repository;
+
 using System;
 using System.Data;
 
 namespace Systekna.Application
 {
-    public class Business : IBusiness<Entity>, IBusinessConsulta<Entity>, IBusinessImport
+    public partial class BusinessProperties : IBusiness<Entity>
     {
         public IExcel excel;
-
-        public static Valid IsValidCadastro { get; set; }
-        public static Valid IsValidAlteração { get; set; }
-        public static Valid IsValidExclusão { get; set; }
-        public static Valid IsValidExport{ get; set; }
 
         public Valid Alterar(Entity entity)
         {
@@ -51,7 +46,6 @@ namespace Systekna.Application
                 StringMethod = System.Reflection.MethodBase.GetCurrentMethod().Name
             };
         }
-
         public Valid ExportDataTable(DataTable data, string path)
         {
             excel = new Excel();

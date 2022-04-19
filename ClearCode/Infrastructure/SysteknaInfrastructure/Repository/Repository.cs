@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-namespace Systekna.Infrastructure
+namespace Systekna.Infrastructure.Repository
 {
     public class Repository
     {
