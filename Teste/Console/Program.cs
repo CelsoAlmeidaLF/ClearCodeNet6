@@ -2,32 +2,44 @@
 using Systekna.Application;
 using Systekna.Application.Interface;
 using Systekna.Core.Entity;
-using System.Diagnostics;
 
+Console.Title = "Console Test CRUD";
+
+// Entidades do negócio.
 Entity entity = new Entity();
-IBusiness<Entity> business = new Business();
 
-Console.WriteLine("Name: " + entity.GetType().Name);
-Console.WriteLine("Assembly: " + entity.GetType().Assembly);
-Console.WriteLine("Name: " + business.GetType().Name);
-Console.WriteLine("Assembly: " + business.GetType().Assembly);
+// Chama regra de negócio.
+IBusiness<Entity> _business = new Business();
+ISendEmail _send = new BusinessEmail();
 
-Business.IsValidCadastro = business.Cadastrar(entity);
+// Cadastra um item no Repository.
+Business.IsValidCadastro = _business.Cadastrar(entity);
 if (Business.IsValidCadastro.ValidValue)
 {
-    Debug.WriteLine($"Cadastrado com sucesso!");
+    _send.SendEmail(entity.Email, null, "cadastro com sucesso", "...", false);
+    //Debug.WriteLine($"Cadastrado com sucesso!");
 }
 
-Business.IsValidAlteração = business.Alterar(entity);
+// Altera um item no Repository.
+Business.IsValidAlteração = _business.Alterar(entity);
 if (Business.IsValidAlteração.ValidValue)
 {
-    Debug.WriteLine($"Alterado com sucesso!");
+    _send.SendEmail(entity.Email, null, "alteração com sucesso", "...", false);
+    //Debug.WriteLine($"Alterado com sucesso!");
 }
 
-Business.IsValidExclusão = business.Excluir(entity);
+// Exclui um item no Repository.
+Business.IsValidExclusão = _business.Excluir(entity);
 if (Business.IsValidExclusão.ValidValue)
 {
-    Debug.WriteLine($"Exclusão com sucesso!");
+    _send.SendEmail(entity.Email, null, "exclusão com sucesso", "...", false);
+    //Debug.WriteLine($"Exclusão com sucesso!");
 }
 
+#region "Console"
+Console.WriteLine("Name: " + entity.GetType().Name);
+Console.WriteLine("Assembly: " + entity.GetType().Assembly);
+Console.WriteLine("Name: " + _business.GetType().Name);
+Console.WriteLine("Assembly: " + _business.GetType().Assembly);
 Console.Read();
+#endregion

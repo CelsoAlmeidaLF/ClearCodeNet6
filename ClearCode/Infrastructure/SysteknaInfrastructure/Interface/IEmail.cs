@@ -1,4 +1,4 @@
-﻿namespace Systekna.Infrastructure.Interface
+﻿namespace Systekna.Infrastructure
 {
     public interface IEmail
     {
