@@ -1,5 +1,6 @@
 ﻿using Systekna.Core.Entity;
 using System;
+using System.Data;
 
 namespace Systekna.Infrastructure
 {
@@ -25,6 +26,11 @@ namespace Systekna.Infrastructure
         public bool Excluir(Entity entity)
         {
             return entity.DataExclusão != null ? true : false;
+        }
+
+        public DataTable Consultar(Entity entity)
+        {
+            return new DataTable("empty table");
         }
     }
 }
