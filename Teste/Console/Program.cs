@@ -10,12 +10,15 @@ Console.Title = "Console Test CRUD";
 Entity entity = new Entity();
 
 // Chama regra de negócio.
-IBusiness<Entity> _business = new Business();
+IBusiness<Entity> _bCadastraAtualizaRepository = new Business();
 ISendEmail _send = new BusinessEmail();
-IBusinessConsulta<Entity> _bConsulta = new Business();
+IBusinessConsulta<Entity> _bConsultaRepository = new Business();
+IBusinessImport _bImportDataTable = new Business();
+
+#region "Methods"
 
 // Cadastra um item no Repository.
-Business.IsValidCadastro = _business.Cadastrar(entity);
+Business.IsValidCadastro = _bCadastraAtualizaRepository.Cadastrar(entity);
 if (Business.IsValidCadastro.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "cadastro com sucesso", "...", false);
@@ -23,7 +26,7 @@ if (Business.IsValidCadastro.ValidValue)
 }
 
 // Altera um item no Repository.
-Business.IsValidAlteração = _business.Alterar(entity);
+Business.IsValidAlteração = _bCadastraAtualizaRepository.Alterar(entity);
 if (Business.IsValidAlteração.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "alteração com sucesso", "...", false);
@@ -31,7 +34,7 @@ if (Business.IsValidAlteração.ValidValue)
 }
 
 // Exclui um item no Repository.
-Business.IsValidExclusão = _business.Excluir(entity);
+Business.IsValidExclusão = _bCadastraAtualizaRepository.Excluir(entity);
 if (Business.IsValidExclusão.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "exclusão com sucesso", "...", false);
@@ -39,19 +42,20 @@ if (Business.IsValidExclusão.ValidValue)
 }
 
 // Retorna DataTable e exporta tabela.
-DataTable dt = _bConsulta.ReturnDataTable(new Entity());
+DataTable dtIn = _bConsultaRepository.ReturnDataTable(new Entity());
 
-Business.IsValidExport = _bConsulta.ExportDataTable(dt, Directory.GetCurrentDirectory());
+// Exporta Table para um novo arquivo.
+Business.IsValidExport = _bConsultaRepository.ExportDataTable(dtIn, Directory.GetCurrentDirectory());
 if (Business.IsValidExclusão.ValidValue)
 {
     _send.SendEmail(entity.Email, null, "exportado com sucesso", "...", false);
     //Debug.WriteLine($"Exclusão com sucesso!");
 }
 
+DataTable dtOut = _bImportDataTable.ImportDataTable(Directory.GetCurrentDirectory());
+
+#endregion
+
 #region "Console"
-Console.WriteLine("Name: " + entity.GetType().Name);
-Console.WriteLine("Assembly: " + entity.GetType().Assembly);
-Console.WriteLine("Name: " + _business.GetType().Name);
-Console.WriteLine("Assembly: " + _business.GetType().Assembly);
 Console.Read();
 #endregion

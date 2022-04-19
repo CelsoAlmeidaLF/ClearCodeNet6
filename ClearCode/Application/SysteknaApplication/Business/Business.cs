@@ -10,9 +10,9 @@ using System.Data;
 
 namespace Systekna.Application
 {
-    public class Business : IBusiness<Entity>, IBusinessConsulta<Entity>
+    public class Business : IBusiness<Entity>, IBusinessConsulta<Entity>, IBusinessImport
     {
-        public IExportFile excel;
+        public IExcel excel;
 
         public static Valid IsValidCadastro { get; set; }
         public static Valid IsValidAlteração { get; set; }
@@ -52,18 +52,23 @@ namespace Systekna.Application
             };
         }
 
-        public DataTable ReturnDataTable(Entity entity)
-        {
-            return new Repository(Framework.StringConection).Consultar(entity);
-        }
         public Valid ExportDataTable(DataTable data, string path)
         {
-            excel = new Excel();           
+            excel = new Excel();
             return new Valid()
             {
                 ValidValue = excel.Export(data, path),
                 StringMethod = System.Reflection.MethodBase.GetCurrentMethod().Name
             };
+        }
+        public DataTable ReturnDataTable(Entity entity)
+        {
+            return new Repository(Framework.StringConection).Consultar(entity);
+        }
+        public DataTable ImportDataTable(string path)
+        {
+            excel = new Excel();
+            return excel.Import(path);
         }
     }
 }
