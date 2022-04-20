@@ -1,12 +1,11 @@
 using NUnit.Framework;
-using Systekna.Application;
 using Systekna.Core.Entity;
 using System;
 using System.Diagnostics;
 
-namespace NUT.Application
+namespace Systekna.Application.NUnit
 {
-    public class TestsBusiness
+    public class BusinessTest
     {
         // Chama regra de negócio.
         private IBusiness<Entity> _business;
