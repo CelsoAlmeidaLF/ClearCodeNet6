@@ -1,7 +1,7 @@
-﻿using Systekna.Core.Valid;
+﻿using Systekna.Core.ValidObject;
 using System.Data;
 
-namespace Systekna.Application
+namespace Systekna.Core.Interface
 {
     public interface IGetBusiness<T>
     {

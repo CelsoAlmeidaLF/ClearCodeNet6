@@ -1,6 +1,6 @@
-﻿using Systekna.Core.Valid;
+﻿using Systekna.Core.ValidObject;
 
-namespace Systekna.Application
+namespace Systekna.Core.Interface
 {
     public interface IUpInsBusiness<T>
     {

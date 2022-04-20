@@ -1,6 +1,7 @@
 ﻿using Systekna.Application;
+using Systekna.Core;
 using Systekna.Core.Entity;
-using System.Data;
+using System.Diagnostics;
 
 Console.Title = "Console Test CRUD";
 
@@ -8,55 +9,21 @@ Console.Title = "Console Test CRUD";
 Entity entity = new Entity();
 
 // Chama regra de negócio.
-IBusiness<Entity> _business = new Business();
-ISendEmail _send = new BusinessEmail();
+IBusiness<Entity> _business = new BusinessOffice();
+IlogEvent log = new Log();
 
-#region "Methods"
+#region "Methods basic CRUD"
 
-// Cadastra item no Repository.
-Business.IsValidCadastro = _business.InsertRepository(entity);
-if (Business.IsValidCadastro.ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "cadastro com sucesso!", "...", false);
-}
+//entity = new Entity() { DataCriação = DateTime.Now, ID = 402 };
+entity.Valid = _business.InsertRepository(entity);
+Debug.WriteLine((entity.GetValid ? $"ID: {entity.ID} cadastrado em: {entity.DataCriação}." : "não cadastrado ..."));
 
-// Altera item no Repository.
-Business.IsValidAlteração = _business.UpdateRepository(entity);
-if (Business.IsValidAlteração.ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "alteração com sucesso!", "...", false);
-}
+//entity = new Entity() { DataAlteração = DateTime.Now, ID = 404 };
+entity.Valid = _business.UpdateRepository(entity);
+Debug.WriteLine((entity.GetValid ? $"ID: {entity.ID} alterado em: {entity.DataAlteração}." : "não alterado ..."));
 
-// Exclui item no Repository.
-Business.IsValidExclusão = _business.DeleteRepository(entity);
-if (Business.IsValidExclusão.ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "exclusão com sucesso!", "...", false);
-}
+//entity = new Entity() { DataExclusão = DateTime.Now, ID = 405 };
+entity.Valid = _business.DeleteRepository(entity);
+Debug.WriteLine((entity.GetValid ? $"ID: {entity.ID} removido em: {entity.DataExclusão}." : "não removido ..."));
 
-// Retorna DataTable do Repository.
-DataTable dtIn = _business.ReturnDataTable(new Entity());
-if(Business.IsValidTable(dtIn).ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "return datatable com sucesso!", "...", false);
-}
-
-// Exporta Table para um novo arquivo.
-Business.IsValidExport = _business.ExportDataTable(dtIn, Directory.GetCurrentDirectory());
-if (Business.IsValidExclusão.ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "exportado com sucesso!", "...", false);
-}
-
-// Importa Data do Arquivo para Table.
-DataTable dtOut = _business.ImportDataFile(Directory.GetCurrentDirectory());
-if (Business.IsValidTable(dtOut).ValidValue)
-{
-    _send.SendEmail(entity.Email, null, "importação com sucesso!", "...", false);
-}
-
-#endregion
-
-#region "Console"
-Console.Read();
 #endregion

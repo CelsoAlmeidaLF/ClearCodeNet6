@@ -7,7 +7,7 @@ namespace Systekna.Infrastructure.File
     {
         public bool Export(DataTable data, string path)
         {
-            return true;
+            return false;
         }
 
         public DataTable ImportDataFile(string path)
