@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Systekna.Application
 {
-    public class BusinessOffice : Business, IBusiness<Entity>
+    public class BusinessDevelopment : Business, IBusiness<Entity>
     {
         // Exporta dados da base para o arquivo.
         public override Valid ExportDataTable(DataTable data, string path)

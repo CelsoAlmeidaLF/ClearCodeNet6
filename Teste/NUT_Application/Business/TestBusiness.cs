@@ -13,7 +13,7 @@ namespace Systekna.Application.NUnit
         [SetUp]
         public void Setup()
         {
-            _business = new BusinessOffice();
+            _business = new BusinessDevelopment();
         }
 
         [Test]
