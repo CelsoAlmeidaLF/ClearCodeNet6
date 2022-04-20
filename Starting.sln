@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WF", "Ui\WF\WF.csproj", "{6CC5CAA5-5D17-4684-B063-CE354B3D7C6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserInterface", "Ui\WF\UserInterface.csproj", "{6CC5CAA5-5D17-4684-B063-CE354B3D7C6F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code", "Code", "{6938A303-386C-477D-BCD8-4DEACECAA8DE}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUT_Application", "Teste\NU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUT_Infrasctruture", "Teste\NUT_Infrasctruture\NUT_Infrasctruture.csproj", "{E494BB98-E58E-4FBA-B007-FA1F12DE1DA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Teste\Console\Console.csproj", "{26CB3ED0-587E-4BC2-9182-0680A4B74586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Development", "Teste\Console\Development.csproj", "{26CB3ED0-587E-4BC2-9182-0680A4B74586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
