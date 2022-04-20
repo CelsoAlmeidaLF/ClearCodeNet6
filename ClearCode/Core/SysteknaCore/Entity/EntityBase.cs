@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Systekna.Core.ValidObject;
+using System;
 using System.Data;
 
 namespace Systekna.Core.Entity
@@ -10,5 +11,6 @@ namespace Systekna.Core.Entity
         public DateTime? DataAlteração { get; set; } = null;
         public bool Exclusão { get; set; } = false;
         public DateTime? DataExclusão { get; set; } = null;
+        public Valid Valid { get; set; } = null;
     }
 }

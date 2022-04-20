@@ -12,8 +12,4 @@
     <ProjectReference Include="..\..\Core\SysteknaCore\Systekna.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>

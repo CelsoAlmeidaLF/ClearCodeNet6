@@ -4,7 +4,8 @@ namespace Systekna.Core
 {
     public class EntityUser
     {
-        public string UserNameLogin { get; } = Environment.UserName;
-        public DateTime DataLogin { get; } = DateTime.Now;
+        public string NameUserLogin { get { return Environment.UserName;  } }
+        public DateTime DataUserLogin { get { return DateTime.Now; } }
+        public string Email { get; set; }
     }
 }

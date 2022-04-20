@@ -1,21 +1,19 @@
-﻿
-using Systekna.Application.Business;
-using Systekna.Application.Interface;
+﻿using Systekna.Application;
+using Systekna.Core;
 using Systekna.Core.Entity;
-using Systekna.Core.Valid;
-using System.Data;
+using System.Diagnostics;
 
-EntityBusiness entity = new EntityBusiness();
-DataTable data = new DataTable();
-IBusiness<EntityBusiness> business = new Business();
+Console.Title = "Console Test CRUD";
 
-try
-{
-    EntityBusiness.IsValid(entity);
-    data = IsValid.Value.Equals(true) ? business.GetDataTable(entity) : throw new Exception("Parametro não encontrado!");
-    bool? complet = business.IsComplet();
-}
-catch (Exception ex)
-{
-    Console.Error.WriteLine(ex.Message);
-}
+// Chama regra de negócio.
+IBusiness<Entity> _business = new BusinessOffice();
+IlogEvent log = new Log();
+
+Console.WriteLine("Name: " + _business.GetType().Name);
+Console.WriteLine("Assembly: " + _business.GetType().Assembly);
+Console.ReadKey();
+
+Debug.WriteLine("--> INICIO ");
+
+
+Debug.WriteLine("--> FIM ");

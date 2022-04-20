@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Systekna.Core.ValidObject
+﻿namespace Systekna.Core.ValidObject
 {
-    public class ValidObject
+    public class Valid : EntityUser
     {
-        public bool? IsValid { get; set; } = false;
+        public bool ValidValue { get; set; } = false;
+        public string StringMethod { get; set; }
+
+        public Valid()
+        {
+
+        }
+
+        public Valid(string method)
+        {
+            StringMethod = method;
+        }
     }
 }

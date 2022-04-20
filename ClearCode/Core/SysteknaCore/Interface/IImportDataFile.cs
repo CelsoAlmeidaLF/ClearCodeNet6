@@ -1,8 +1,8 @@
 ﻿using System.Data;
 
-namespace Systekna.Infrastructure
+namespace Systekna.Core.Interface
 {
-    public interface IImportFile
+    public interface IImportDataFile
     {
         DataTable ImportDataFile(string path);
     }
